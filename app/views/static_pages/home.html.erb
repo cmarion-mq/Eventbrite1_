@@ -1,0 +1,29 @@
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Prochains évenements</h1>
+      <p>Voilà de quoi occuper vos week-end, soirées,...</p>
+      <br/>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <% @events.each do |g| %>
+        <div class="col-md-4">
+          <h2><%=g.title%></h2>
+          <h4>Prévu le <%=g.start_date%></h4>
+          <p><%=g.description%></p>
+          <p><%= link_to 'S inscrire', g, class:"btn btn-secondary" %></p>
+        </div>
+      <% end %> 
+    </div>
+
+    <hr>
+
+  </div> <!-- /container -->
+
+</main>

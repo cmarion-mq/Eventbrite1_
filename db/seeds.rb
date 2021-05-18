@@ -18,7 +18,7 @@ Faker::Config.locale = 'fr'
     email: Faker::Internet.username(specifier: "#{first_name} #{last_name}", separators: ['.']) + '@yopmail.com',
     first_name: first_name,
     last_name: last_name,
-    encrypted_password: Faker::Internet.password,
+    password: Faker::Internet.password,
     description: Faker::Lorem.sentences(number: 5).join(' ')
   )
 end
