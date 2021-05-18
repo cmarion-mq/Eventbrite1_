@@ -2,6 +2,10 @@ class EventsController < ApplicationController
   def index
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def new
     redirect_to new_user_session_path unless user_signed_in?
     @event = Event.new

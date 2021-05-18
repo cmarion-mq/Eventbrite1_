@@ -1,0 +1,27 @@
+<div class="container">
+  <h2 class="py-4"> <%= @event.title %> </h2>
+
+  <div class="card border-primary">
+    <div class="card-header text-primary">
+      <h4>Prévu le <%= @event.start_date %> à <%= @event.location %> </h4>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-3">Description</div>
+        <div class="col-lg-9"><%= @event.description %></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">Prix</div>
+        <div class="col-lg-9"><%= @event.price %></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">Pour joindre l'organisteur</div>
+        <div class="col-lg-9"><%= @event.administrator.email%></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">Fin prévu le </div>
+        <div class="col-lg-9"><%= ></div>
+      </div>
+    </div>
+  </div>
+</div>
