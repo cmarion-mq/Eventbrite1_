@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to 'Proposer un évenement', "#", class:"nav-link active" %>
+          <%= link_to 'Proposer un évenement', new_event_path, class:"nav-link active" %>
         </li>
           <% if user_signed_in? %>
           <li class="nav-item dropdown">
@@ -15,7 +15,7 @@
           Mon profil
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to 'Mon profil', edit_user_registration_path, class:"dropdown-item"%></li>
+            <li><%= link_to 'Mon profil', user_path(current_user), class:"dropdown-item"%></li>
             <li><%= button_to "Log out", destroy_user_session_path, method: :delete%></li>
             <li><%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
           </ul>

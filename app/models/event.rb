@@ -15,10 +15,10 @@ class Event < ApplicationRecord
   validates :location, presence: true
 
   def start_date_is_future
-    errors.add(:start_date, 'Date antérieure à la date du jour, action impossible') unless start_date > Time.now
+    errors.add(:start_date, 'Date antérieure à la date du jour, action impossible') unless start_date && start_date > Time.now
   end
 
   def duration_is_multiple_of_5
-     errors.add(:duration, 'La durée de votre évenement doit être un multiple de 5') unless duration > 0 && duration % 5 == 0
+     errors.add(:duration, 'La durée de votre évenement doit être un multiple de 5') unless duration && duration > 0 && duration % 5 == 0
   end
 end
