@@ -17,7 +17,7 @@ class EventsController < ApplicationController
       location: params[:location],
       start_date: params[:start_date],
       duration: params[:duration],
-      price: params[:price],
+      price: params[:price].to_i,
       description: params[:description],
       administrator: current_user
       )
