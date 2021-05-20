@@ -16,12 +16,22 @@
       </div>
       <div class="row">
         <div class="col-lg-3">Pour joindre l'organisteur</div>
-        <div class="col-lg-9"><%= @event.administrator.email%></div>
+        <div class="col-lg-9"><%= @event.administrator.email %></div>
       </div>
       <div class="row">
-        <div class="col-lg-3">Fin prévu le </div>
-        <div class="col-lg-9"><%= ></div>
+        <div class="col-lg-3">Fin prévu le</div>
+        <div class="col-lg-9"><%=@event.end_date%></div>
       </div>
     </div>
   </div>
+  </br>
+  <% if !user_signed_in? %>
+    <div class="alert alert-primary"> Connecte toi pour t'inscrire ! </div>
+  <% elsif @event.administrator?(current_user) %>
+    <button type="button" class="btn btn-outline-primary", style="text-decoration:none;"><%= link_to "Gérer mon évènement", event_attendances_path(@event) %></button>
+  <% elsif @event.attendee?(current_user) %>
+    <div class="alert alert-primary"> Inscription à cet évènement validée</div>
+  <% else %>
+    <button type="button" class="btn btn-outline-primary", style="text-decoration:none;"><%= link_to 'Rejoindre l évènement', new_event_attendance_path(@event)%></button>  
+  <% end%>
 </div>

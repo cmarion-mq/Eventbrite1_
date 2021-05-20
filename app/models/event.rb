@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :administrator, class_name: "User"
-  has_many :attendances, through: :attendances
+  has_many :attendances
   has_many :attendees, through: :attendances
 
   validates :start_date, presence: true
@@ -19,6 +19,18 @@ class Event < ApplicationRecord
   end
 
   def duration_is_multiple_of_5
-     errors.add(:duration, 'La durée de votre évenement doit être un multiple de 5') unless duration && duration > 0 && duration % 5 == 0
+     errors.add(:duration, 'La durée de votre évènement doit être un multiple de 5') unless duration && duration > 0 && duration % 5 == 0
+  end
+
+  def end_date
+    self.start_date + duration
+   end  
+
+  def attendee?(user)
+    self.attendees.include?(user)
+  end
+
+  def administrator?(user)
+    user == administrator
   end
 end
